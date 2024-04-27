@@ -32,6 +32,8 @@ df_2015 <- read_sav("ISSP_2015.sav") %>%
   select(TOPBOT, URBRURAL) %>%
   mutate(year = 2015)
 
+
+
 df_2017 <- read_sav("ISSP_2017.sav") %>%
   filter(c_alphan == "FR") %>%
   select(TOPBOT, URBRURAL) %>%
