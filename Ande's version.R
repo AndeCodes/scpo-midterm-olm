@@ -1,7 +1,10 @@
+install.packages('stargazer')
+library(stargazer)
 library(haven)
 library(dplyr)
 
 # Process each year, using a prefix to avoid naming confusion
+
 df_2005 <- read_sav("ISSP_2005.sav") %>%
   filter(C_ALPHAN == "FR") %>%
   select(TOPBOT, URBRURAL) %>%
@@ -31,7 +34,6 @@ df_2015 <- read_sav("ISSP_2015.sav") %>%
   filter(c_alphan == "FR") %>%
   select(TOPBOT, URBRURAL) %>%
   mutate(year = 2015)
-
 
 
 df_2017 <- read_sav("ISSP_2017.sav") %>%
@@ -98,9 +100,6 @@ summary_model_1 <- summary(model_1)
 print(summary_model_1)
 
 #______________________________________________________________________________________
-install.packages('stargazer')
-library(stargazer)
-
 
 # Use stargazer to generate the table
 stargazer(model_1, model_2, model_3, type = "text",
